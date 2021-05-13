@@ -1,3 +1,4 @@
+DROP database VeloMax;
 CREATE DATABASE VeloMax;
 USE VeloMax;
 
@@ -78,6 +79,7 @@ INSERT INTO Piece_rechange values('S88','Selle','03/2020','05/2020','55','157','
 INSERT INTO Piece_rechange values('DV17','Dérailleur Avant','03/2020','05/2020','5','158','0555978464687');
 INSERT INTO Piece_rechange values('G7','Guidon','03/2020','05/2020','5','159','0555978475423');
 
+
 CREATE TABLE Fidelio(
 noProgramme INT,
 description VARCHAR(30),
@@ -147,3 +149,75 @@ FOREIGN KEY (numeroProduit) REFERENCES Piece_rechange(numeroProduit),
 FOREIGN KEY (nom) REFERENCES Client(nom));
 INSERT INTO Commande Value(1,'05/12/2020','55 Rue Louis Barthou Pau', '15/12/2020','toto','R152',null);
 
+#Gestion du stock, connaissance à tout moment du stock des pièces et des vélos
+
+#Par pièce
+SELECT description, count(*) as Nombre
+FROM Piece_rechange p
+GROUP BY p.description;
+
+SELECT *
+FROM Piece_rechange p
+WHERE p.description = 'Selle';
+
+
+
+#Par fournisseur
+SELECT f.nomEntreprise, count(*) as Nombre_de_pieces_differentes_venant_de_ce_fourisseur
+#numeroProduit, description
+FROM Piece_rechange p NATURAL JOIN fournisseur f
+GROUP BY p.siretFournisseur;
+
+SELECT *
+FROM Piece_rechange p, fournisseur f
+WHERE p.siretFournisseur = f.siretFournisseur and f.nomEntreprise = 'Scott';
+
+
+
+#Par vélo
+SELECT nomB, count(*) as Nombre
+FROM Modele_Bicyclette m
+GROUP BY m.nomB;
+
+
+
+#Par catégorie de vélo
+SELECT ligne_produit, count(*) as Nombre
+FROM Modele_Bicyclette m
+GROUP BY m.ligne_produit ;
+
+SELECT *
+FROM Modele_Bicyclette m
+WHERE m.ligne_produit = 'VTT';
+
+
+
+
+#Par grandeur ( Adultes, Jeunes, fille ... )
+SELECT grandeur, count(*) as Nombre
+FROM Modele_Bicyclette m
+GROUP BY m.grandeur;
+
+SELECT *
+FROM Modele_Bicyclette m
+WHERE m.grandeur = 'Jeunes';
+
+
+
+
+#Par prixUnitaire
+SELECT prixUnitaire, count(*) as Nombre
+FROM Modele_Bicyclette m
+GROUP BY m.prixUnitaire;
+
+SELECT *
+FROM Modele_Bicyclette m
+WHERE m.prixUnitaire <= 200;
+
+
+
+
+#Code pour trouver les pièces que velomax a (liste1). ( on créera par la suite a la main le liste des pièces dont velomax
+#a besoin (liste2), puis on supprimera a liste2 les éléments de liste1 pour trouver les pièces manquantes )
+SELECT numeroProduit
+FROM Piece_rechange p;
