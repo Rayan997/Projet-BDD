@@ -58,11 +58,11 @@ nomEntreprise VARCHAR(30),
 siretFournisseur VARCHAR(30),
 contact VARCHAR(30),
 adresse VARCHAR(30),
-libelle INT,
+libelle VARCHAR(30),
 PRIMARY KEY (siretFournisseur)); 
 
-INSERT INTO Fournisseur VALUE('Scott','0555978464687','0589874105','12 Rue du Capitole Toulouse', 1);
-INSERT INTO Fournisseur VALUE('Trek','0555978475423','0387592405','15 Rue de la gare Nevers', 2);
+INSERT INTO Fournisseur VALUE('Scott','0555978464687','0589874105','12 Rue du Capitole Toulouse','CR897');
+INSERT INTO Fournisseur VALUE('Trek ','0555978475423','0387592405','15 Rue de la gare Nevers','CR589');
 
 CREATE TABLE Piece_rechange(
 numeroProduit VARCHAR(30),
@@ -74,10 +74,128 @@ numero_produit_fournisseur VARCHAR(30),
 siretFournisseur VARCHAR(30),
 PRIMARY KEY (numeroProduit),
 FOREIGN KEY (siretFournisseur) REFERENCES Fournisseur(siretFournisseur));
-INSERT INTO Piece_rechange values('C32','Cadre','03/2020','05/2020','5','156','0555978475423');
-INSERT INTO Piece_rechange values('S88','Selle','03/2020','05/2020','55','157','0555978475423');
-INSERT INTO Piece_rechange values('DV17','Dérailleur Avant','03/2020','05/2020','5','158','0555978464687');
-INSERT INTO Piece_rechange values('G7','Guidon','03/2020','05/2020','5','159','0555978475423');
+INSERT INTO Piece_rechange values('C32','Cadre','03/2020','05/2020','5','C156','0555978475423');
+INSERT INTO Piece_rechange values('S88','Selle','03/2020','05/2020','55','S157','0555978475423');
+INSERT INTO Piece_rechange values('DV17','Dérailleur Avant','03/2020','05/2020','5','D158','0555978464687');
+INSERT INTO Piece_rechange values('G7','Guidon','03/2020','05/2020','5','G159','0555978475423');
+INSERT INTO Piece_rechange values('F3','Freins','05/2019','10/2020','7','F159','0555978475423');
+INSERT INTO Piece_rechange values('DV133','Dérailleur Avant','10/2020','04/2021','15','DV001','0555978475423');
+INSERT INTO Piece_rechange values('DR56','Dérailleur Arrière','10/2019','04/2021','15','DR001','0555978464687');
+INSERT INTO Piece_rechange values('R45','Roue','10/2019','01/2021','3','RAV010','0555978475423');
+INSERT INTO Piece_rechange values('R46','Roue','10/2019','01/2021','3','RAR011','0555978475423');
+INSERT INTO Piece_rechange values('P12','Pédalier','09/2020','12/2020','14','P01','0555978464687');
+INSERT INTO Piece_rechange values('O2','Ordinateur','10/2018','04/2021','2','O542','0555978475423');
+INSERT INTO Piece_rechange values('C34','Cadre','11/2020','01/2021','21','CD1','0555978464687');
+INSERT INTO Piece_rechange values('DV17','Dérailleur Avant','11/2020','04/2021','3','DV002','0555978475423');
+INSERT INTO Piece_rechange values('DR87','Dérailleur Arrière','01/2020','03/2021','3','DAR151','0555978475423');
+INSERT INTO Piece_rechange values('R48','Roue','08/2020','03/2021','7','RAV151','0555978464687');
+INSERT INTO Piece_rechange values('R47','Roue','08/2020','03/2021','7','RAR151','0555978475423');
+INSERT INTO Piece_rechange values('C76','Cadre','11/2018','02/2021','15','C158','0555978475423');
+INSERT INTO Piece_rechange values('DV87','Dérailleur Avant','07/2017','01/2021','5','DAV087','0555978475423');
+INSERT INTO Piece_rechange values('DR86','Dérailleur Arrière','07/2016','04/2021','5','DAR086','0555978464687');
+INSERT INTO Piece_rechange values('R12','Roue','10/2020','02/2021','2','RV012','0555978475423');
+INSERT INTO Piece_rechange values('R32','Roue','10/2020','02/2021','2','RV032','0555978475423');
+INSERT INTO Piece_rechange values('C43','Cadre','10/2020','04/2021','25','C43','0555978464687');
+INSERT INTO Piece_rechange values('G9','Guidon','10/2019','08/2020','5','G009','0555978475423');
+INSERT INTO Piece_rechange values('F9','Freins','10/2019','04/2020','3','F009','0555978464687');
+INSERT INTO Piece_rechange values('S37','Selle','12/2018','01/2021','4','S037','0555978475423');
+INSERT INTO Piece_rechange values('DV57','Dérailleur Avant','11/2018','04/2020','15','DV057','0555978464687');
+INSERT INTO Piece_rechange values('R19','Roue','05/2019','04/2021','3','R019','0555978475423');
+INSERT INTO Piece_rechange values('R18','Roue','11/2019','05/2020','3','R018','0555978475423');
+INSERT INTO Piece_rechange values('R02','Réflecteurs','10/2018','04/2021','2','RF02','0555978475423');
+INSERT INTO Piece_rechange values('P34','Pédalier','10/2016','05/2021','7','P034','0555978464687');
+INSERT INTO Piece_rechange values('C44f','Cadre','12/2015','01/2021','30','C044f','0555978475423');
+INSERT INTO Piece_rechange values('S35','Selle','09/2019','01/2020','15','S035','0555978475423');
+INSERT INTO Piece_rechange values('O4','Ordinateur','01/2021','05/2021','3','OR04','0555978475423');
+INSERT INTO Piece_rechange values('C43f','Cadre','10/2020','04/2021','25','CD043','0555978475423');
+INSERT INTO Piece_rechange values('C01','Cadre','01/2019','01/2021','15','CD001','0555978475423');
+INSERT INTO Piece_rechange values('G12','Guidon','12/2020','05/2021','5','GU012','0555978464687');
+INSERT INTO Piece_rechange values('S02','Selle','11/2020','03/2021','3','S002','0555978475423');
+INSERT INTO Piece_rechange values('R1','Roue','10/2019','02/2021','15','RV01','0555978475423');
+INSERT INTO Piece_rechange values('R2','Roue','02/2020','12/2020','15','RV02','0555978464687');
+INSERT INTO Piece_rechange values('R09','Réflecteur','10/2020','04/2021','3','RF009','0555978475423');
+INSERT INTO Piece_rechange values('P1','Pédalier','05/2020','02/2021','7','P01','0555978475423');
+INSERT INTO Piece_rechange values('S01','Panier','10/2019','01/2021','3','PA01','0555978475423');
+INSERT INTO Piece_rechange values('C02','Cadre','10/2015','01/2020','10','CD002','0555978475423');
+INSERT INTO Piece_rechange values('S03','Selle','09/2020','04/2021','15','S003','0555978475423');
+INSERT INTO Piece_rechange values('S05','Panier','10/2020','04/2021','3','PA05','0555978475423');
+INSERT INTO Piece_rechange values('C15','Cadre','05/2020','09/2020','15','CA015','0555978464687');
+INSERT INTO Piece_rechange values('S36','Selle','11/2019','04/2020','11','S036','0555978475423');
+INSERT INTO Piece_rechange values('DV15','Dérailleur Avant','10/2020','04/2021','15','DV015','0555978475423');
+INSERT INTO Piece_rechange values('DR23','Dérailleur Arrière','11/2020','05/2021','3','DR023','0555978475423');
+INSERT INTO Piece_rechange values('R11','Roue','10/2020','04/2021','15','R011','0555978475423');
+INSERT INTO Piece_rechange values('R12','Roue','10/2020','04/2021','15','R012','0555978464687');
+INSERT INTO Piece_rechange values('R10','Réflecteurs','11/2020','03/2021','3','RF10','0555978475423');
+INSERT INTO Piece_rechange values('P15','Pédalier','12/2020','05/2021','15','P015','0555978475423');
+INSERT INTO Piece_rechange values('S74','Panier','10/2020','04/2021','15','S074','0555978464687');
+INSERT INTO Piece_rechange values('C87','Cadre','10/2010','04/2021','7','CA087','0555978475423');
+INSERT INTO Piece_rechange values('DV41','Dérailleur Avant','10/2020','04/2021','15','DV041','0555978475423');
+INSERT INTO Piece_rechange values('DR76','Dérailleur Arrière','10/2020','04/2021','15','DR076','0555978464687');
+INSERT INTO Piece_rechange values('C87f','Cadre','10/2010','04/2021','7','CA087f','0555978475423');
+INSERT INTO Piece_rechange values('S34','Selle','11/2012','05/2021','3','S034','0555978475423');
+INSERT INTO Piece_rechange values('S73','Panier','10/2009','03/2021','10','PA073','0555978464687');
+INSERT INTO Piece_rechange values('C25','Cadre','10/2013','05/2020','3','C025','0555978475423');
+INSERT INTO Piece_rechange values('S87','Selle','10/2015','02/2021','5','S087','0555978464687');
+INSERT INTO Piece_rechange values('DV132','Dérailleur Avant','10/2010','04/2021','7','DV132','0555978475423');
+INSERT INTO Piece_rechange values('DR52','Dérailleur Arrière','10/2015','01/2021','7','DR052','0555978475423');
+INSERT INTO Piece_rechange values('R44','Roue','10/2016','04/2020','10','R044','0555978464687');
+INSERT INTO Piece_rechange values('C26','Cadre','10/2012','03/2021','17','C026','0555978475423');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 CREATE TABLE Fidelio(
@@ -100,6 +218,7 @@ PRIMARY KEY (numSecu),
 FOREIGN KEY (noProgramme) REFERENCES Fidelio(noProgramme));
 INSERT INTO Particulier Values('03e45886','toto',2);
 INSERT INTO Particulier Values('03e47886','titi',Null);
+
 
 CREATE TABLE Remise_Commerciale(
 pourcentage_Remise INT,
@@ -178,9 +297,6 @@ SELECT nomB, count(*) as Nombre
 FROM Modele_Bicyclette m
 GROUP BY m.nomB;
 
-SELECT *
-FROM Modele_Bicyclette m
-WHERE m.nomB = 'Tierra Verde';
 
 
 #Par catégorie de vélo
@@ -223,18 +339,3 @@ WHERE m.prixUnitaire <= 200;
 #a besoin (liste2), puis on supprimera a liste2 les éléments de liste1 pour trouver les pièces manquantes )
 SELECT numeroProduit
 FROM Piece_rechange p;
-
-
-#2. Produire la liste des membres pour chaque programme d’adhésion
-
-SELECT numSecu, prenom
-FROM Particulier p
-WHERE noProgramme = 2;
-
-#3. Affichez également la date d’expiration des adhésions 
-
-
-
-#Afficher le nombre de client
-SELECT count(*)
-FROM Client c;
