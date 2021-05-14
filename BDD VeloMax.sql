@@ -58,11 +58,11 @@ nomEntreprise VARCHAR(30),
 siretFournisseur VARCHAR(30),
 contact VARCHAR(30),
 adresse VARCHAR(30),
-libelle VARCHAR(30),
+libelle int,
 PRIMARY KEY (siretFournisseur)); 
 
-INSERT INTO Fournisseur VALUE('Scott','0555978464687','0589874105','12 Rue du Capitole Toulouse','CR897');
-INSERT INTO Fournisseur VALUE('Trek ','0555978475423','0387592405','15 Rue de la gare Nevers','CR589');
+INSERT INTO Fournisseur VALUE('Scott','0555978464687','0589874105','12 Rue du Capitole Toulouse',1);
+INSERT INTO Fournisseur VALUE('Trek ','0555978475423','0387592405','15 Rue de la gare Nevers',3);
 
 CREATE TABLE Piece_rechange(
 numeroProduit VARCHAR(30),
