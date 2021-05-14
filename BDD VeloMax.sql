@@ -142,62 +142,6 @@ INSERT INTO Piece_rechange values('R44','Roue','10/2016','04/2020','10','R044','
 INSERT INTO Piece_rechange values('C26','Cadre','10/2012','03/2021','17','C026','0555978475423');
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 CREATE TABLE Fidelio(
 noProgramme INT,
 description VARCHAR(30),
@@ -297,6 +241,9 @@ SELECT nomB, count(*) as Nombre
 FROM Modele_Bicyclette m
 GROUP BY m.nomB;
 
+SELECT *
+FROM Modele_Bicyclette m
+WHERE m.nomB = 'Tierra Verde';
 
 
 #Par catégorie de vélo
@@ -339,3 +286,17 @@ WHERE m.prixUnitaire <= 200;
 #a besoin (liste2), puis on supprimera a liste2 les éléments de liste1 pour trouver les pièces manquantes )
 SELECT numeroProduit
 FROM Piece_rechange p;
+
+#2. Produire la liste des membres pour chaque programme d’adhésion
+
+SELECT numSecu, prenom
+FROM Particulier p
+WHERE noProgramme = 2;
+
+#3. Affichez également la date d’expiration des adhésions 
+
+
+
+#Afficher le nombre de client
+SELECT count(*)
+FROM Client c;
