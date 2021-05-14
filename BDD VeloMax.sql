@@ -58,11 +58,11 @@ nomEntreprise VARCHAR(30),
 siretFournisseur VARCHAR(30),
 contact VARCHAR(30),
 adresse VARCHAR(30),
-libelle VARCHAR(30),
+libelle INT,
 PRIMARY KEY (siretFournisseur)); 
 
-INSERT INTO Fournisseur VALUE('Scott','0555978464687','0589874105','12 Rue du Capitole Toulouse','CR897');
-INSERT INTO Fournisseur VALUE('Trek ','0555978475423','0387592405','15 Rue de la gare Nevers','CR589');
+INSERT INTO Fournisseur VALUE('Scott','0555978464687','0589874105','12 Rue du Capitole Toulouse', 1);
+INSERT INTO Fournisseur VALUE('Trek','0555978475423','0387592405','15 Rue de la gare Nevers', 2);
 
 CREATE TABLE Piece_rechange(
 numeroProduit VARCHAR(30),
@@ -100,7 +100,6 @@ PRIMARY KEY (numSecu),
 FOREIGN KEY (noProgramme) REFERENCES Fidelio(noProgramme));
 INSERT INTO Particulier Values('03e45886','toto',2);
 INSERT INTO Particulier Values('03e47886','titi',Null);
-
 
 CREATE TABLE Remise_Commerciale(
 pourcentage_Remise INT,
@@ -179,6 +178,9 @@ SELECT nomB, count(*) as Nombre
 FROM Modele_Bicyclette m
 GROUP BY m.nomB;
 
+SELECT *
+FROM Modele_Bicyclette m
+WHERE m.nomB = 'Tierra Verde';
 
 
 #Par catégorie de vélo
@@ -221,3 +223,18 @@ WHERE m.prixUnitaire <= 200;
 #a besoin (liste2), puis on supprimera a liste2 les éléments de liste1 pour trouver les pièces manquantes )
 SELECT numeroProduit
 FROM Piece_rechange p;
+
+
+#2. Produire la liste des membres pour chaque programme d’adhésion
+
+SELECT numSecu, prenom
+FROM Particulier p
+WHERE noProgramme = 2;
+
+#3. Affichez également la date d’expiration des adhésions 
+
+
+
+#Afficher le nombre de client
+SELECT count(*)
+FROM Client c;
