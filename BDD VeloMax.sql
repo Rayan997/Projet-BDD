@@ -62,7 +62,7 @@ libelle int,
 PRIMARY KEY (siretFournisseur)); 
 
 INSERT INTO Fournisseur VALUE('Scott','0555978464687','0589874105','12 Rue du Capitole Toulouse',1);
-INSERT INTO Fournisseur VALUE('Trek ','0555978475423','0387592405','15 Rue de la gare Nevers',3);
+INSERT INTO Fournisseur VALUE('Trek','0555978475423','0387592405','15 Rue de la gare Nevers',3);
 
 CREATE TABLE Piece_rechange(
 numeroProduit VARCHAR(30),
@@ -141,7 +141,6 @@ INSERT INTO Piece_rechange values('DR52','Dérailleur Arrière','10/2015','01/20
 INSERT INTO Piece_rechange values('R44','Roue','10/2016','04/2020','10','R044','0555978464687');
 INSERT INTO Piece_rechange values('C26','Cadre','10/2012','03/2021','17','C026','0555978475423');
 
-
 CREATE TABLE Fidelio(
 noProgramme INT,
 description VARCHAR(30),
@@ -168,7 +167,9 @@ CREATE TABLE Remise_Commerciale(
 pourcentage_Remise INT,
 PRIMARY KEY (pourcentage_Remise));
 INSERT INTO Remise_Commerciale value(5);
-
+INSERT INTO Remise_Commerciale value(10);
+INSERT INTO Remise_Commerciale value(15);
+INSERT INTO remise_commerciale value(0);
 CREATE TABLE Boutique_Specialisee(
 siretBoutique VARCHAR(30),
 nom_contact VARCHAR(30),
