@@ -1,7 +1,10 @@
 DROP database VeloMax;
 CREATE DATABASE VeloMax;
 USE VeloMax;
-
+CREATE USER 'Root'@'localhost' IDENTIFIED BY 'Root';
+CREATE USER 'Bozo'@'localhost' IDENTIFIED BY 'Bozo';
+GRANT ALL PRIVILEGES ON * . * TO 'Root'@'localhost';
+GRANT SELECT ON *.* TO 'Bozo'@'localhost';
 
 CREATE TABLE Modele_Bicyclette(
 numModele INT,
@@ -161,7 +164,7 @@ PRIMARY KEY (numSecu),
 FOREIGN KEY (noProgramme) REFERENCES Fidelio(noProgramme));
 INSERT INTO Particulier Values('03e45886','toto',2);
 INSERT INTO Particulier Values('03e47886','titi',Null);
-
+SELECT client_Part FROM client where nom='toto';
 
 CREATE TABLE Remise_Commerciale(
 pourcentage_Remise INT,
